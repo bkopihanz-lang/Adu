@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CATShadow Gateway</title>
+    <style>
+        body { background: #0a0a0a; color: #00ff88; font-family: 'Courier New', monospace; padding: 20px; }
+        input, button { background: #111; color: #0f0; border: 1px solid #0f0; padding: 10px; width: 80%; margin: 5px; }
+        iframe { width: 100%; height: 70vh; border: 1px solid #0f0; background: #fff; }
+    </style>
+</head>
+<body>
+    <h2>🐱‍💻 CATShadow Proxy – Bypass Total</h2>
+    <input type="text" id="url" placeholder="https://situs-yang-diblokir.com" value="https://google.com">
+    <button onclick="bypass()">🚀 LEWATI SEKARANG</button>
+    <iframe id="proxyframe" sandbox="allow-scripts allow-forms allow-same-origin"></iframe>
+
+    <script>
+        function bypass() {
+            let target = document.getElementById('url').value;
+            let frame = document.getElementById('proxyframe');
+            // Kirim ke backend PHP proxy
+            frame.src = 'proxy.php?url=' + encodeURIComponent(target);
+        }
+        // Auto-load default
+        window.onload = bypass;
+    </script>
+</body>
+</html>
